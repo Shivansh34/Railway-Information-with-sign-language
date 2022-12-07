@@ -11,3 +11,67 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.divback{
+  height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  align-items: center;
+  margin-left: 10%;
+}
+.heading{
+  background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-bottom: 15vh;
+}
+.image_text
+{
+  display: flex;
+  margin-left: 10%;
+
+}
+.shower{
+  height: 23vh;
+  width: 60vh;
+  margin-left: 14%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.btn{
+  background-color: #04AA6D;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  margin-left: -63%;
+  width: 8rem;
+  font-size: 1.5rem;
+  margin-top: 5%;
+}
+.abc{
+  margin-top: -5%;
+}
+.pnr_dispaly{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.Btn_pnr{
+  background-color: #008CBA;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  padding: 12px 16px;
+  margin-left: 50%;
+  width: 12rem;
+  font-size: 1rem;
+  margin-top: 6%;
+  
+}
