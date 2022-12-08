@@ -28,7 +28,7 @@ data_generator = ImageDataGenerator(
 )
 model_loc=os.path.abspath(os.path.join(os.getcwd(), os.pardir))+"\\backend\\model_name.model"
 model = tf.keras.models.load_model(model_loc)
-classes = ['.ipynb_checkpoints', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+classes = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 
 # model = ResNet50(weights='imagenet')
