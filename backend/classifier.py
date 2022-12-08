@@ -70,7 +70,7 @@ def classifyImage(file):
     prediction = np.array(model.predict(img))
     print(prediction)
     predicted = classes[prediction.argmax()]
-    print('Actual class: {} - Predicted class: {}'.format(0, predicted), end=' ')
+    print(' Predicted class: {}'.format(predicted), end=' ')
     return predicted
     # import cv2
     # import tensorflow as tf
