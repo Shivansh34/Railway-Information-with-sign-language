@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1f4fd161b016fa43ceafc7b0522f3f2e1d2ff766638f4d73fe3b5f6f91485dd3
-size 621
+import './App.css';
+import Classifier from './classifier';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  
+} from "react-router-dom";
+import Home from "./Home";
+import Train from "./Train";
+function App() {
+  return (
+    <div className="App">
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route  path="/" element={<Home/>}></Route>
+            
+            <Route path="/PNR" element={(<Classifier />)}></Route>
+            <Route path="/train" element={<Train/>}></Route>
+          </Routes>
+         
+        </div>
+      </Router>
+      
+    </div>
+  );
+}
+
+export default App;

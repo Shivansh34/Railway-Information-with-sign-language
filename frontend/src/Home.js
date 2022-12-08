@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f1d9f0e34ce0b4f7066b9ce4192d2175f8c8f28daf314562d2f5e118b5d2efd6
-size 856
+import { Button } from "@mui/material";
+import React from "react";
+import imgUrl from "./image/train.jpg";
+function Home() {
+  return (
+    <div
+      className="Component-Bg"
+      style={{
+        backgroundImage: `url(${imgUrl})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        backgroundRepeat: "no-repeat",
+        height: "100vh",
+      }}
+    >
+      <p>hi</p>
+      <Button
+        variant="contained"
+        style={{
+          marginTop: "50vh",
+          marginRight: "5vh",
+        }}
+      >
+        Train Enquiry
+      </Button>
+      <Button
+        variant="contained"
+        style={{
+          marginTop: "50vh",
+          marginRight: "80vh",
+        }}
+        href="/PNR"
+      >
+        Pnr Enquiry
+      </Button>
+    </div>
+  );
+}
+
+export default Home;
