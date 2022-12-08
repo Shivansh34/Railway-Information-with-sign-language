@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import background from "../image/railway.jpg"
+import axios from "axios";
 const Classifier = () => {
   const canvasRef = useRef();
   const imageRef = useRef();
@@ -7,12 +8,15 @@ const Classifier = () => {
 
   const [result, setResult] = useState("");
   
-
   useEffect(() => {
     async function getCameraStream() {
       const stream = await navigator.mediaDevices.getUserMedia({
         audio: false,
-        video: true,
+        
+        video: {
+          width: { exact: 200},
+          height: { exact:300 }
+        }
       });
   
       if (videoRef.current) {      
@@ -22,9 +26,10 @@ const Classifier = () => {
   
     getCameraStream();
   }, []);
+  const handleClick = async() => {
+    
   
-  useEffect(() => {
-    const interval = setInterval(async () => {
+  
       captureImageFromCamera();
 
       if (imageRef.current) {
@@ -38,22 +43,39 @@ const Classifier = () => {
         console.log(response);
         if (response.status === 200) {
           const text = await response.text();
-          setResult(text);
+          console.log(result,text)
+          setResult(result+text);
         } else {
           console.log(response)
           setResult("Error from API.");
         }
       }
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+    };
 
   const playCameraStream = () => {
     if (videoRef.current) {
       videoRef.current.play();
     }
   };
-
+  const handlePnr=()=>{
+    const options = {
+      method: 'GET',
+      url: 'https://pnr-status-indian-railway.p.rapidapi.com/pnr-check/2152389529',
+      headers: {
+        'X-RapidAPI-Key': 'b774af3dfdmshc8e8257d7dcbba2p196048jsnbed50875245d',
+        'X-RapidAPI-Host': 'pnr-status-indian-railway.p.rapidapi.com'
+      }
+    };
+    
+    
+    axios.request(options).then(function (response) {
+      console.log(response.data);
+    }).catch(function (error) {
+      console.error(error);
+    });
+    console.log("hi")
+    setResult(0)
+  }
   const captureImageFromCamera = () => {
     const context = canvasRef.current.getContext('2d');
     const { videoWidth, videoHeight } = videoRef.current;
@@ -70,13 +92,26 @@ const Classifier = () => {
 
   return (
     <>
-      <header>
-        <h1>Image classifier</h1>
+     
+      <main >
+      <div style={{ backgroundImage: `url(${background})` }} className="divback">\ <header>
+        <h1 className="heading">Railway Pnr Enquiry system</h1>
       </header>
-      <main>
-        <video ref={videoRef} onCanPlay={() => playCameraStream()} id="video" />
-        <canvas ref={canvasRef} hidden></canvas>
-        <p>Currently seeing: {result}</p>
+      <div className="image_text">
+      <video ref={videoRef} onCanPlay={() => playCameraStream()} id="video"  className="abc"/>
+      <canvas ref={canvasRef} hidden></canvas>
+        <div className="shower">
+        <label for="fname">Current pnr:</label>
+        <p  id="fname" className="pnr_dispaly">
+          {result }
+          </p>
+          <button className="Btn_pnr" onClick={handlePnr}>Check Pnr Status &raquo;</button>
+          </div>
+        </div>
+        <button className="btn" onClick={handleClick}>Next &raquo;</button>
+      </div>
+        
+        
       </main>
     </>
   )

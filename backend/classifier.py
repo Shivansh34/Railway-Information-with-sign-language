@@ -11,7 +11,7 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 import numpy as np
 import tensorflow as tf
 from keras.preprocessing.image import ImageDataGenerator
-
+import os
 IMAGE_SIZE = 200
 BATCH_SIZE = 64
 print("kh")
@@ -26,9 +26,8 @@ data_generator = ImageDataGenerator(
     shear_range=0.3,
     fill_mode='nearest'
 )
-
-model = tf.keras.models.load_model("F:/Study Material/major/react-flask-keras-app/backend/model_name.model")
-
+model_loc=os.path.abspath(os.path.join(os.getcwd(), os.pardir))+"\\backend\\model_name.model"
+model = tf.keras.models.load_model(model_loc)
 classes = ['.ipynb_checkpoints', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 
