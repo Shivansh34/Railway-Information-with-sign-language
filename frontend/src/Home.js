@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import React from "react";
 import imgUrl from "./image/train.jpg";
+import Navbar from "./Navbar";
 function Home() {
   return (
     <div
@@ -13,13 +14,14 @@ function Home() {
         height: "100vh",
       }}
     >
-      <p>hi</p>
+      <Navbar />
       <Button
         variant="contained"
         style={{
           marginTop: "50vh",
           marginRight: "5vh",
         }}
+        href="/train"
       >
         Train Enquiry
       </Button>

@@ -15,6 +15,10 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
+import Navbar from '../Navbar'
+import TextField from "@mui/material/TextField";
+
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -173,7 +177,7 @@ const Classifier = () => {
 
   return (
     <>
-     
+     <Navbar/>
       <main >
       <div style={{ backgroundImage: `url(${background})` }} className="divback">\ <header>
         <h1 className="heading">Railway Pnr Enquiry system</h1>
@@ -183,9 +187,15 @@ const Classifier = () => {
       <canvas ref={canvasRef} hidden></canvas>
         <div className="shower">
         <label for="fname">Current pnr:</label>
-        <p  id="fname" className="pnr_dispaly">
-          {result }
-          </p>
+        <TextField
+                type="text"
+                id="fname"
+                className="pnr_dispaly"
+                value={result}
+                onChange={(e) => {
+                  setResult(e.target.value);
+                }}
+              />
           <button className="Btn_pnr" onClick={handlePnr}>Check Pnr Status &raquo;</button>
           </div>
         </div>
