@@ -6,6 +6,7 @@ const Classifier = () => {
   const videoRef = useRef();
 
   const [result, setResult] = useState("");
+  
 
   useEffect(() => {
     async function getCameraStream() {
