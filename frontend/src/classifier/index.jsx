@@ -89,7 +89,7 @@ const Classifier = () => {
   
     for (var k in frequency) {
       if (frequency[k] == maxFreq) {
-        modes.push(k);
+        return k;
       }
     }
   
